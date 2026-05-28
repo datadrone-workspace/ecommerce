@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeMart — Premium Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== LOGIN SCREEN ===================== -->
+  <div id="screen-login" class="screen active">
+    <div class="login-bg">
+      <div class="login-bg-grain"></div>
+      <div class="login-bg-orb orb-1"></div>
+      <div class="login-bg-orb orb-2"></div>
+    </div>
+    <div class="login-container">
+      <div class="login-brand">
+        <span class="brand-mark">✦</span>
+        <span class="brand-name">LuxeMart</span>
+      </div>
+      <div class="login-card">
+        <h1 class="login-title">Welcome back</h1>
+        <p class="login-sub">Sign in to continue your journey</p>
+
+        <div class="social-logins">
+          <button class="social-btn" onclick="handleSocialLogin('google')">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Continue with Google
+          </button>
+          <button class="social-btn" onclick="handleSocialLogin('apple')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.14-2.18 1.3-2.16 3.88.03 3.09 2.66 4.11 2.69 4.12l-.08.52zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Continue with Apple
+          </button>
+        </div>
+
+        <div class="divider"><span>or sign in with email</span></div>
+
+        <div class="form-group">
+          <label for="login-email">Email address</label>
+          <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" />
+          <a href="#" class="forgot-link" onclick="handleForgotPassword(event)">Forgot password?</a>
+        </div>
+        <button class="btn-primary" onclick="handleLogin()">Sign in</button>
+        <p class="login-footer">New to LuxeMart? <a href="#" onclick="handleSignupClick(event)">Create account</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SIGNUP SCREEN ===================== -->
+  <div id="screen-signup" class="screen">
+    <div class="login-bg">
+      <div class="login-bg-grain"></div>
+      <div class="login-bg-orb orb-1"></div>
+      <div class="login-bg-orb orb-2"></div>
+    </div>
+    <div class="login-container">
+      <div class="login-brand">
+        <span class="brand-mark">✦</span>
+        <span class="brand-name">LuxeMart</span>
+      </div>
+      <div class="login-card">
+        <h1 class="login-title">Create account</h1>
+        <p class="login-sub">Join thousands of happy shoppers</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="signup-fname">First name</label>
+            <input type="text" id="signup-fname" placeholder="Alex" />
+          </div>
+          <div class="form-group">
+            <label for="signup-lname">Last name</label>
+            <input type="text" id="signup-lname" placeholder="Chen" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email address</label>
+          <input type="email" id="signup-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="signup-phone">Phone (optional)</label>
+          <input type="tel" id="signup-phone" placeholder="+91 99999 00000" />
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Min 8 characters" />
+        </div>
+        <div class="form-group">
+          <label for="signup-dob">Date of birth (optional)</label>
+          <input type="date" id="signup-dob" />
+        </div>
+        <div class="pref-section">
+          <label class="pref-label">Shopping preferences</label>
+          <div class="pref-chips" id="signup-prefs">
+            <button class="chip" data-pref="electronics" onclick="togglePref(this)">Electronics</button>
+            <button class="chip" data-pref="fashion" onclick="togglePref(this)">Fashion</button>
+            <button class="chip" data-pref="home_living" onclick="togglePref(this)">Home &amp; Living</button>
+            <button class="chip" data-pref="beauty" onclick="togglePref(this)">Beauty</button>
+            <button class="chip" data-pref="sports" onclick="togglePref(this)">Sports</button>
+            <button class="chip" data-pref="books" onclick="togglePref(this)">Books</button>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="handleSignup()">Create account</button>
+        <p class="login-footer">Already have an account? <a href="#" onclick="handleLoginClick(event)">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="screen-app" class="screen">
+
+    <!-- NAV -->
+    <nav class="navbar" id="main-nav">
+      <div class="nav-inner">
+        <button class="nav-menu-btn" id="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-brand" onclick="navigateTo('home')">
+          <span class="brand-mark">✦</span>
+          <span class="brand-name">LuxeMart</span>
+        </div>
+        <nav class="nav-links" id="nav-links">
+          <a href="#" class="nav-link active" data-page="home" onclick="navigateTo('home', event)">Home</a>
+          <a href="#" class="nav-link" data-page="shop" onclick="navigateTo('shop', event)">Shop</a>
+          <a href="#" class="nav-link" data-page="deals" onclick="navigateTo('deals', event)">Deals</a>
+          <a href="#" class="nav-link" data-page="orders" onclick="navigateTo('orders', event)">Orders</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="search-trigger" onclick="toggleSearch()" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <button class="nav-icon-btn" onclick="navigateTo('wishlist')" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span class="badge" id="wishlist-badge">0</span>
+          </button>
+          <button class="nav-icon-btn cart-btn" onclick="navigateTo('cart')" aria-label="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="badge" id="cart-badge">0</span>
+          </button>
+          <button class="nav-icon-btn avatar-btn" onclick="toggleUserMenu()" aria-label="Account" id="user-avatar-btn">
+            <span id="user-avatar-initials">?</span>
+          </button>
+        </div>
+      </div>
+      <!-- Search bar -->
+      <div class="search-bar" id="search-bar">
+        <input type="text" id="search-input" placeholder="Search products, brands, categories…" oninput="handleSearchInput(this.value)" onkeydown="handleSearchKey(event)" />
+        <button onclick="toggleSearch()">✕</button>
+        <div class="search-suggestions" id="search-suggestions"></div>
+      </div>
+    </nav>
+
+    <!-- User dropdown -->
+    <div class="user-dropdown" id="user-dropdown">
+      <div class="user-dropdown-header">
+        <span id="dropdown-name">User</span>
+        <span id="dropdown-email" class="dropdown-email"></span>
+      </div>
+      <hr />
+      <button onclick="navigateTo('profile'); toggleUserMenu()">My Profile</button>
+      <button onclick="navigateTo('orders'); toggleUserMenu()">Order History</button>
+      <button onclick="navigateTo('wishlist'); toggleUserMenu()">Wishlist</button>
+      <hr />
+      <button class="logout-btn" onclick="handleLogout()">Sign out</button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-inner">
+        <a href="#" onclick="navigateTo('home'); closeMenu()">Home</a>
+        <a href="#" onclick="navigateTo('shop'); closeMenu()">Shop</a>
+        <a href="#" onclick="navigateTo('deals'); closeMenu()">Deals</a>
+        <a href="#" onclick="navigateTo('orders'); closeMenu()">Orders</a>
+        <a href="#" onclick="navigateTo('wishlist'); closeMenu()">Wishlist</a>
+        <a href="#" onclick="navigateTo('cart'); closeMenu()">Cart</a>
+        <a href="#" onclick="navigateTo('profile'); closeMenu()">Profile</a>
+        <a href="#" onclick="handleLogout()">Sign out</a>
+      </div>
+    </div>
+    <div class="overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+    <!-- PAGE: HOME -->
+    <div id="page-home" class="page active">
+      <section class="hero" id="hero-section">
+        <div class="hero-bg">
+          <div class="hero-grain"></div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-eyebrow" id="hero-greeting">Good morning</div>
+          <h1 class="hero-title" id="hero-headline">Crafted for the<br /><em>discerning</em> few.</h1>
+          <p class="hero-sub" id="hero-sub">Discover products curated to your taste.</p>
+          <div class="hero-cta-group">
+            <button class="btn-primary" onclick="navigateTo('shop')">Explore Collection</button>
+            <button class="btn-ghost" onclick="navigateTo('deals')">View Deals</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-product-showcase" id="hero-showcase"></div>
+        </div>
+      </section>
+
+      <section class="section categories-section">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Category</h2>
+          <a href="#" class="section-link" onclick="navigateTo('shop', event)">View all →</a>
+        </div>
+        <div class="categories-grid" id="categories-grid"></div>
+      </section>
+
+      <section class="section featured-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Products</h2>
+          <a href="#" class="section-link" onclick="navigateTo('shop', event)">Shop all →</a>
+        </div>
+        <div class="products-grid" id="featured-products"></div>
+      </section>
+
+      <section class="section trending-section">
+        <div class="section-header">
+          <h2 class="section-title">Trending Now</h2>
+        </div>
+        <div class="products-grid" id="trending-products"></div>
+      </section>
+
+      <section class="section promo-banner-section" id="promo-banner"></section>
+
+      <section class="section recently-viewed-section" id="recently-viewed-section" style="display:none">
+        <div class="section-header">
+          <h2 class="section-title">Recently Viewed</h2>
+        </div>
+        <div class="products-grid" id="recently-viewed-products"></div>
+      </section>
+    </div>
+
+    <!-- PAGE: SHOP -->
+    <div id="page-shop" class="page">
+      <div class="shop-layout">
+        <aside class="shop-sidebar" id="shop-sidebar">
+          <div class="sidebar-header">
+            <h3>Filters</h3>
+            <button class="clear-filters-btn" onclick="clearFilters()">Clear all</button>
+          </div>
+          <div class="filter-group">
+            <h4>Category</h4>
+            <div id="filter-categories"></div>
+          </div>
+          <div class="filter-group">
+            <h4>Price Range</h4>
+            <div class="price-range">
+              <input type="range" id="price-min" min="0" max="50000" value="0" oninput="updatePriceFilter()" />
+              <input type="range" id="price-max" min="0" max="50000" value="50000" oninput="updatePriceFilter()" />
+              <div class="price-labels">
+                <span id="price-min-label">₹0</span>
+                <span id="price-max-label">₹50,000</span>
+              </div>
+            </div>
+          </div>
+          <div class="filter-group">
+            <h4>Rating</h4>
+            <div class="rating-filters" id="filter-ratings"></div>
+          </div>
+          <div class="filter-group">
+            <h4>Brand</h4>
+            <div id="filter-brands"></div>
+          </div>
+        </aside>
+
+        <main class="shop-main">
+          <div class="shop-toolbar">
+            <div class="shop-results-info">
+              <span id="shop-results-count">0 products</span>
+              <button class="filter-mobile-btn" onclick="toggleSidebar()">⚙ Filters</button>
+            </div>
+            <div class="shop-sort">
+              <select id="sort-select" onchange="applySortAndFilter()">
+                <option value="default">Sort: Featured</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
+          </div>
+          <div class="active-filters" id="active-filters"></div>
+          <div class="products-grid" id="shop-products"></div>
+          <div class="load-more-wrap" id="load-more-wrap" style="display:none">
+            <button class="btn-ghost" onclick="loadMoreProducts()">Load more products</button>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- PAGE: PRODUCT DETAIL -->
+    <div id="page-product" class="page">
+      <div class="product-detail-layout" id="product-detail-content"></div>
+    </div>
+
+    <!-- PAGE: CART -->
+    <div id="page-cart" class="page">
+      <div class="cart-layout">
+        <div class="cart-main">
+          <div class="page-title-row">
+            <h2 class="page-title">Shopping Cart</h2>
+            <span id="cart-item-count" class="cart-count-label"></span>
+          </div>
+          <div id="cart-items-container"></div>
+          <div class="cart-empty" id="cart-empty" style="display:none">
+            <div class="empty-icon">🛒</div>
+            <p>Your cart is empty</p>
+            <button class="btn-primary" onclick="navigateTo('shop')">Start Shopping</button>
+          </div>
+        </div>
+        <aside class="cart-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">₹0</span></div>
+          <div class="summary-row" id="summary-discount-row" style="display:none"><span>Discount</span><span id="summary-discount" class="discount-text">-₹0</span></div>
+          <div class="summary-row"><span>Shipping</span><span id="summary-shipping">Free</span></div>
+          <div class="coupon-row">
+            <input type="text" id="coupon-input" placeholder="Coupon code" />
+            <button onclick="applyCoupon()">Apply</button>
+          </div>
+          <div class="summary-total"><span>Total</span><span id="summary-total">₹0</span></div>
+          <button class="btn-primary checkout-btn" onclick="initiateCheckout()">Proceed to Checkout</button>
+          <div class="trust-badges">
+            <span>🔒 Secure checkout</span>
+            <span>↩ Easy returns</span>
+            <span>🚚 Free delivery</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- PAGE: CHECKOUT -->
+    <div id="page-checkout" class="page">
+      <div class="checkout-layout">
+        <div class="checkout-main">
+          <div class="checkout-steps" id="checkout-steps">
+            <div class="checkout-step active" data-step="1">1. Address</div>
+            <div class="checkout-step" data-step="2">2. Delivery</div>
+            <div class="checkout-step" data-step="3">3. Payment</div>
+            <div class="checkout-step" data-step="4">4. Review</div>
+          </div>
+
+          <!-- Step 1: Address -->
+          <div id="checkout-step-1" class="checkout-step-content active">
+            <h3>Delivery Address</h3>
+            <div class="saved-addresses" id="saved-addresses"></div>
+            <div class="form-section" id="new-address-form">
+              <h4>Add new address</h4>
+              <div class="form-row">
+                <div class="form-group"><label>First Name</label><input type="text" id="co-fname" /></div>
+                <div class="form-group"><label>Last Name</label><input type="text" id="co-lname" /></div>
+              </div>
+              <div class="form-group"><label>Street Address</label><input type="text" id="co-street" /></div>
+              <div class="form-row">
+                <div class="form-group"><label>City</label><input type="text" id="co-city" /></div>
+                <div class="form-group"><label>State</label><input type="text" id="co-state" /></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>PIN Code</label><input type="text" id="co-pin" /></div>
+                <div class="form-group"><label>Phone</label><input type="tel" id="co-phone" /></div>
+              </div>
+            </div>
+            <button class="btn-primary" onclick="proceedCheckout(2)">Continue to Delivery</button>
+          </div>
+
+          <!-- Step 2: Delivery -->
+          <div id="checkout-step-2" class="checkout-step-content">
+            <h3>Delivery Method</h3>
+            <div class="delivery-options" id="delivery-options"></div>
+            <button class="btn-primary" onclick="proceedCheckout(3)">Continue to Payment</button>
+          </div>
+
+          <!-- Step 3: Payment -->
+          <div id="checkout-step-3" class="checkout-step-content">
+            <h3>Payment Method</h3>
+            <div class="payment-options" id="payment-options"></div>
+            <div class="card-form" id="card-form" style="display:none">
+              <div class="form-group"><label>Card Number</label><input type="text" id="card-num" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNum(this)" /></div>
+              <div class="form-row">
+                <div class="form-group"><label>Expiry</label><input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" /></div>
+                <div class="form-group"><label>CVV</label><input type="text" id="card-cvv" placeholder="123" maxlength="4" /></div>
+              </div>
+              <div class="form-group"><label>Name on Card</label><input type="text" id="card-name" placeholder="Alex Chen" /></div>
+            </div>
+            <button class="btn-primary" onclick="proceedCheckout(4)">Review Order</button>
+          </div>
+
+          <!-- Step 4: Review -->
+          <div id="checkout-step-4" class="checkout-step-content">
+            <h3>Review Your Order</h3>
+            <div id="order-review-content"></div>
+            <button class="btn-primary place-order-btn" onclick="placeOrder()">Place Order</button>
+          </div>
+        </div>
+
+        <aside class="checkout-summary">
+          <h3>Order Summary</h3>
+          <div id="checkout-cart-items"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="co-subtotal">₹0</span></div>
+          <div class="summary-row"><span>Shipping</span><span id="co-shipping">Free</span></div>
+          <div class="summary-total"><span>Total</span><span id="co-total">₹0</span></div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- PAGE: ORDER CONFIRMATION -->
+    <div id="page-confirmation" class="page">
+      <div class="confirmation-container">
+        <div class="confirmation-icon">✓</div>
+        <h2>Order Placed Successfully!</h2>
+        <p id="confirmation-order-id"></p>
+        <p id="confirmation-message">Thank you for shopping with LuxeMart. You'll receive a confirmation email shortly.</p>
+        <div id="confirmation-items"></div>
+        <div class="confirmation-actions">
+          <button class="btn-primary" onclick="navigateTo('orders')">Track Order</button>
+          <button class="btn-ghost" onclick="navigateTo('home')">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: WISHLIST -->
+    <div id="page-wishlist" class="page">
+      <div class="container">
+        <div class="page-title-row">
+          <h2 class="page-title">My Wishlist</h2>
+          <span id="wishlist-count-label"></span>
+        </div>
+        <div class="products-grid" id="wishlist-products"></div>
+        <div class="cart-empty" id="wishlist-empty" style="display:none">
+          <div class="empty-icon">♡</div>
+          <p>Your wishlist is empty</p>
+          <button class="btn-primary" onclick="navigateTo('shop')">Discover Products</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: ORDERS -->
+    <div id="page-orders" class="page">
+      <div class="container">
+        <h2 class="page-title">Order History</h2>
+        <div id="orders-list"></div>
+        <div class="cart-empty" id="orders-empty" style="display:none">
+          <div class="empty-icon">📦</div>
+          <p>No orders yet</p>
+          <button class="btn-primary" onclick="navigateTo('shop')">Start Shopping</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: DEALS -->
+    <div id="page-deals" class="page">
+      <div class="container">
+        <div class="deals-header">
+          <h2 class="page-title">Today's Deals</h2>
+          <div class="deals-countdown" id="deals-countdown"></div>
+        </div>
+        <div class="products-grid" id="deals-products"></div>
+      </div>
+    </div>
+
+    <!-- PAGE: PROFILE -->
+    <div id="page-profile" class="page">
+      <div class="container">
+        <div class="profile-layout">
+          <div class="profile-card">
+            <div class="profile-avatar-large" id="profile-avatar-large"></div>
+            <div class="profile-info">
+              <h2 id="profile-name"></h2>
+              <p id="profile-email-display"></p>
+              <p id="profile-member-since" class="profile-meta"></p>
+            </div>
+          </div>
+          <div class="profile-stats">
+            <div class="stat-card"><span class="stat-val" id="stat-orders">0</span><span class="stat-label">Orders</span></div>
+            <div class="stat-card"><span class="stat-val" id="stat-wishlist">0</span><span class="stat-label">Wishlist</span></div>
+            <div class="stat-card"><span class="stat-val" id="stat-spent">₹0</span><span class="stat-label">Spent</span></div>
+          </div>
+          <div class="profile-form">
+            <h3>Edit Profile</h3>
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" id="profile-fname" /></div>
+              <div class="form-group"><label>Last Name</label><input type="text" id="profile-lname" /></div>
+            </div>
+            <div class="form-group"><label>Email</label><input type="email" id="profile-email-field" /></div>
+            <div class="form-group"><label>Phone</label><input type="tel" id="profile-phone" /></div>
+            <div class="pref-section">
+              <label class="pref-label">Shopping Preferences</label>
+              <div class="pref-chips" id="profile-prefs"></div>
+            </div>
+            <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-container" id="toast-container"></div>
+
+  </div><!-- end screen-app -->
+
+  <!-- Segment snippet -->
+  <script>
+    !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","registerPlugin"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/"+key+"/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="YOUR_SEGMENT_WRITE_KEY";;analytics.SNIPPET_VERSION="5.2.1";
+    analytics.load("YOUR_SEGMENT_WRITE_KEY");
+    analytics.page();
+    }}();
+  </script>
+
+  <script src="data.js"></script>
+  <script src="segment.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
